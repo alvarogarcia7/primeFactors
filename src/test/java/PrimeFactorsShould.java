@@ -50,14 +50,14 @@ public class PrimeFactorsShould {
 
 	private List factorize(int number) {
 		final ArrayList<Integer> factors = new ArrayList<Integer>();
-		if(number % 2 == 0){
-			factors.add(2);
-		}
-		if(number % 3 == 0) {
-			factors.add(3);
-		}
-		if(number % 5 == 0) {
-			factors.add(5);
+		List<Integer> primes = new ArrayList<Integer>();
+		primes.add(2);
+		primes.add(3);
+		primes.add(5);
+		for (Integer current : primes){
+			if(number % current == 0){
+				factors.add(current);
+			}
 		}
 		return factors;
 	}
