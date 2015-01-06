@@ -26,6 +26,11 @@ public class PrimeFactorsShould {
 	}
 
 	@Test
+	public void return_the_factor_once_on_a_squared_number() {
+		assertThat(hasItems(factorize(4), 2), is(true));
+	}
+
+	@Test
 	public void return_the_two_factors_on_a_semiprime() {
 		assertThat(hasItems(factorize(6), 2, 3), is(true));
 	}
