@@ -26,9 +26,9 @@ public class PrimeFactorsShould {
 	}
 
 	@Test
-	public void return_the_factor_once_on_a_squared_number() {
-		assertThat(hasItems(factorize(4), 2), is(true));
-		assertThat(hasItems(factorize(8), 2), is(true));
+	public void return_the_factor_once_on_a_POW_number() {
+		assertThat(hasItems(factorize((int) Math.pow(2d, 2d)), 2), is(true));
+		assertThat(hasItems(factorize((int) Math.pow(2d, 3d)), 2), is(true));
 	}
 
 	@Test
