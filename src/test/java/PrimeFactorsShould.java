@@ -68,6 +68,12 @@ public class PrimeFactorsShould {
 	}
 
 	private List factorize(int number) {
+		List<Integer> primes = getPrimesUpTo(number);
+
+		return factorizeIn(number, primes);
+	}
+
+	private List<Integer> getPrimesUpTo(int number) {
 		final List<Integer> candidates = new ArrayList<>();
 		for (int i = MIN_PRIME; i <= 2 + Math.sqrt(number); i++) {
 			candidates.add(i);
@@ -76,15 +82,13 @@ public class PrimeFactorsShould {
 			candidates.add(number);
 		}
 
-
 		List<Integer> primes = new ArrayList<>();
 		for (Integer current : candidates) {
 			if(hasOnlyOnePrimeFactorIn(current, candidates)){
 				primes.add(current);
 			}
 		}
-
-		return factorizeIn(number, primes);
+		return primes;
 	}
 
 	private List<Integer> factorizeIn(int number, List<Integer> minimumBlocks) {
