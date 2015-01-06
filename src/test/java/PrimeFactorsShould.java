@@ -17,20 +17,20 @@ public class PrimeFactorsShould {
 
 	@Test
 	public void return_the_factor_on_a_prime() {
-		assertThat(contains(factorize(2), 2), is(true));
+		assertThat(hasItems(factorize(2), 2), is(true));
 	}
 
 	@Test
 	public void return_the_factor_on_another_prime() {
-		assertThat(contains(factorize(3), 3), is(true));
+		assertThat(hasItems(factorize(3), 3), is(true));
 	}
 
 	@Test
 	public void return_the_two_factors_on_a_semiprime() {
-		assertThat(contains(factorize(6), 2, 3), is(true));
+		assertThat(hasItems(factorize(6), 2, 3), is(true));
 	}
 
-	private boolean contains(List factorize, Integer... number) {
+	private boolean hasItems(List factorize, Integer... number) {
 		final List<Integer> numbersAsList = Arrays.asList(number);
 		return factorize.size() == numbersAsList.size() && factorize.containsAll(numbersAsList);
 	}
