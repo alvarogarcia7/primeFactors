@@ -32,6 +32,12 @@ public class PrimeFactorsShould {
 	}
 
 	@Test
+	public void return_the_factor_once_on_a_POW_number_for_three() {
+		assertThat(hasItems(factorize((int) Math.pow(3d, 2d)), 3), is(true));
+		assertThat(hasItems(factorize((int) Math.pow(3d, 3d)), 3), is(true));
+	}
+
+	@Test
 	public void return_the_two_factors_on_a_semiprime() {
 		assertThat(hasItems(factorize(6), 2, 3), is(true));
 	}
@@ -46,10 +52,7 @@ public class PrimeFactorsShould {
 		if(number % 2 == 0){
 			factors.add(2);
 		}
-		if(number == 3){
-			factors.add(3);
-		}
-		if(number == 6){
+		if(number % 3 == 0) {
 			factors.add(3);
 		}
 		return factors;
