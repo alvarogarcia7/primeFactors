@@ -64,18 +64,35 @@ public class PrimeFactorsShould {
 	}
 
 	private List factorize(int number) {
-		final ArrayList<Integer> factors = new ArrayList<Integer>();
-		List<Integer> primes = new ArrayList<Integer>();
-		primes.add(2);
-		primes.add(3);
-		primes.add(5);
-		primes.add(7);
-		for (Integer current : primes){
+		final List<Integer> candidates = new ArrayList<>();
+		for (int i = 2; i <= number; i++) {
+			candidates.add(i);
+		}
+
+		List<Integer> primes = new ArrayList<>();
+		for (Integer current : candidates) {
+			if(hasOnlyOnePrimeFactorIn(current, candidates)){
+				primes.add(current);
+			}
+		}
+
+		return factorizeIn(number, primes);
+	}
+
+	private List<Integer> factorizeIn(int number, List<Integer> minimumBlocks) {
+		List<Integer> factors = new ArrayList<>();
+
+		for (Integer current : minimumBlocks){
 			if(number % current == 0){
 				factors.add(current);
 			}
 		}
 		return factors;
+	}
+
+	private boolean hasOnlyOnePrimeFactorIn(Integer number, List<Integer> candidates) {
+		List<Integer> factors = factorizeIn(number, candidates);
+		return factors.size() == 1;
 	}
 
 	public boolean empty(Collection o){
