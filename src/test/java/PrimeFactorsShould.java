@@ -53,6 +53,11 @@ public class PrimeFactorsShould {
 		assertThat(hasItems(factorize(30), 2, 3, 5), is(true));
 	}
 
+	@Test
+	public void return_factors_on_numbers_greater_than_the_provided_list() {
+		assertThat(hasItems(factorize(49), 7), is(true));
+	}
+
 	private boolean hasItems(List factorize, Integer... number) {
 		final List<Integer> numbersAsList = Arrays.asList(number);
 		return factorize.size() == numbersAsList.size() && factorize.containsAll(numbersAsList);
