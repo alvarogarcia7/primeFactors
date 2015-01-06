@@ -1,14 +1,13 @@
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class PrimeFactorsShould {
+
+	private static final int MIN_PRIME = 2;
 
 	@Test
 	public void return_an_empty_list_on_one() {
@@ -23,6 +22,11 @@ public class PrimeFactorsShould {
 	@Test
 	public void return_the_factor_on_another_prime() {
 		assertThat(hasItems(factorize(3), 3), is(true));
+	}
+
+	@Test
+	public void return_the_factor_on_a_big_prime() {
+		assertThat(hasItems(factorize(97), 97), is(true));
 	}
 
 	@Test
@@ -55,7 +59,7 @@ public class PrimeFactorsShould {
 
 	@Test
 	public void return_factors_on_numbers_greater_than_the_provided_list() {
-		assertThat(hasItems(factorize(49), 7), is(true));
+		assertThat(hasItems(factorize(490000), 7, 2, 5), is(true));
 	}
 
 	private boolean hasItems(List factorize, Integer... number) {
@@ -65,9 +69,13 @@ public class PrimeFactorsShould {
 
 	private List factorize(int number) {
 		final List<Integer> candidates = new ArrayList<>();
-		for (int i = 2; i <= number; i++) {
+		for (int i = MIN_PRIME; i <= 2 + Math.sqrt(number); i++) {
 			candidates.add(i);
 		}
+		if(!candidates.contains(number) && number >= MIN_PRIME) {
+			candidates.add(number);
+		}
+
 
 		List<Integer> primes = new ArrayList<>();
 		for (Integer current : candidates) {
