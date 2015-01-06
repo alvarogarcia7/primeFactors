@@ -43,6 +43,16 @@ public class PrimeFactorsShould {
 		assertThat(hasItems(factorize(2*5), 2, 5), is(true));
 	}
 
+	@Test
+	public void acceptance_test_1() {
+		assertThat(hasItems(factorize(2), 2), is(true));
+	}
+
+	@Test
+	public void acceptance_test_2() {
+		assertThat(hasItems(factorize(30), 2, 3, 5), is(true));
+	}
+
 	private boolean hasItems(List factorize, Integer... number) {
 		final List<Integer> numbersAsList = Arrays.asList(number);
 		return factorize.size() == numbersAsList.size() && factorize.containsAll(numbersAsList);
