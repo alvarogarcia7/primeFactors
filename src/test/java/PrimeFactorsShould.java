@@ -20,11 +20,15 @@ public class PrimeFactorsShould {
 	}
 
 	private boolean contains(List factorize, int number) {
-		return false;
+		return factorize.contains(number);
 	}
 
 	private List factorize(int number) {
-		return new ArrayList<Integer>();
+		final ArrayList<Integer> factors = new ArrayList<Integer>();
+		if(number == 2){
+			factors.add(2);
+		}
+		return factors;
 	}
 
 	public boolean empty(Collection o){
