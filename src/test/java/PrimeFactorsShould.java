@@ -40,6 +40,7 @@ public class PrimeFactorsShould {
 	@Test
 	public void return_the_two_factors_on_a_semiprime() {
 		assertThat(hasItems(factorize(6), 2, 3), is(true));
+		assertThat(hasItems(factorize(2*5), 2, 5), is(true));
 	}
 
 	private boolean hasItems(List factorize, Integer... number) {
