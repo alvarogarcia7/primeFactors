@@ -28,6 +28,7 @@ public class PrimeFactorsShould {
 	@Test
 	public void return_the_factor_once_on_a_squared_number() {
 		assertThat(hasItems(factorize(4), 2), is(true));
+		assertThat(hasItems(factorize(8), 2), is(true));
 	}
 
 	@Test
