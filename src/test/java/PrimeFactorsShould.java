@@ -1,5 +1,9 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -10,11 +14,11 @@ public class PrimeFactorsShould {
 		assertThat(empty(factorize(1)), is(true));
 	}
 
-	private Object factorize(int number) {
-		return null;
+	private List factorize(int number) {
+		return new ArrayList<Integer>();
 	}
 
-	public boolean empty(Object o){
-		return false;
+	public boolean empty(Collection o){
+		return o.isEmpty();
 	}
 }
