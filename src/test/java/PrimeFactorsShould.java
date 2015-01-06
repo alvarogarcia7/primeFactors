@@ -69,6 +69,7 @@ public class PrimeFactorsShould {
 		primes.add(2);
 		primes.add(3);
 		primes.add(5);
+		primes.add(7);
 		for (Integer current : primes){
 			if(number % current == 0){
 				factors.add(current);
