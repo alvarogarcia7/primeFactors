@@ -14,6 +14,15 @@ public class PrimeFactorsShould {
 		assertThat(empty(factorize(1)), is(true));
 	}
 
+	@Test
+	public void return_the_factor_on_a_prime() {
+		assertThat(contains(factorize(2), 2), is(true));
+	}
+
+	private boolean contains(List factorize, int number) {
+		return false;
+	}
+
 	private List factorize(int number) {
 		return new ArrayList<Integer>();
 	}
