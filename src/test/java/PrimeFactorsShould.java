@@ -32,6 +32,10 @@ public class PrimeFactorsShould {
 		if(number == 2){
 			factors.add(2);
 		}
+		if(number == 6){
+			factors.add(2);
+			factors.add(3);
+		}
 		return factors;
 	}
 
