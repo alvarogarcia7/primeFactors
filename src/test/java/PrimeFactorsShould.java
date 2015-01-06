@@ -42,7 +42,7 @@ public class PrimeFactorsShould {
 
 	private List factorize(int number) {
 		final ArrayList<Integer> factors = new ArrayList<Integer>();
-		if(number == 2){
+		if(number == 2 || number == 4){
 			factors.add(2);
 		}
 		if(number == 3){
