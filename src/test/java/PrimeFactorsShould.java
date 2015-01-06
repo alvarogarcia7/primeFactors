@@ -1,8 +1,6 @@
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -19,8 +17,14 @@ public class PrimeFactorsShould {
 		assertThat(contains(factorize(2), 2), is(true));
 	}
 
-	private boolean contains(List factorize, int number) {
-		return factorize.contains(number);
+	@Test
+	public void return_the_two_factors_on_a_semiprime() {
+		assertThat(contains(factorize(6), 2, 3), is(true));
+	}
+
+	private boolean contains(List factorize, Integer... number) {
+		final List<Integer> numbersAsList = Arrays.asList(number);
+		return factorize.size() == numbersAsList.size() && factorize.containsAll(numbersAsList);
 	}
 
 	private List factorize(int number) {
