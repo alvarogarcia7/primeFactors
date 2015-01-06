@@ -1,6 +1,9 @@
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -15,6 +18,11 @@ public class PrimeFactorsShould {
 	@Test
 	public void return_the_factor_on_a_prime() {
 		assertThat(contains(factorize(2), 2), is(true));
+	}
+
+	@Test
+	public void return_the_factor_on_another_prime() {
+		assertThat(contains(factorize(3), 3), is(true));
 	}
 
 	@Test
