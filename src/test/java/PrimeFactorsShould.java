@@ -56,6 +56,9 @@ public class PrimeFactorsShould {
 		if(number % 3 == 0) {
 			factors.add(3);
 		}
+		if(number % 5 == 0) {
+			factors.add(5);
+		}
 		return factors;
 	}
 
